@@ -1,4 +1,6 @@
 import br.com.cinecode.cine.calculo.CalculadoraDeTempo;
+import br.com.cinecode.cine.calculo.FiltroRecomendacao;
+import br.com.cinecode.cine.modelos.Episodio;
 import br.com.cinecode.cine.modelos.Filme;
 import br.com.cinecode.cine.modelos.Serie;
 
@@ -37,5 +39,15 @@ public class Principal {
         calculadora.inclui(outroFilme);
         calculadora.inclui(blackmirror);
         System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(blackmirror);
+        episodio.setTotalDeVisualizacoes(300);
+        filtro.filtra(episodio);
     }
 }
